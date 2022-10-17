@@ -1,0 +1,11 @@
+<br><br><br><br>
+
+<h1>create package</h1> 
+
+<%= bootstrap_form_with(model: @package) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :description %>
+    <%= f.number_field :price %>
+    <%= f.submit 'Create Package' %>
+
+<% end %>
