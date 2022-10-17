@@ -40,6 +40,10 @@ class PackagesController < ApplicationController
   end
   
   
+  def destroy
+    @package.destroy
+    redirect_to packages_path, alert: "Package was deleted"
+  end
   
   
   
