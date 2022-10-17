@@ -2,16 +2,19 @@ class PackagesController < ApplicationController
   
   before_action :load_package, except: [:new, :index, :create] 
   
+  #GET /packages
   def index
-    
     @packages = Package.all
-    
   end
   
+  
+  #GET /packages/new
   def new 
     @package = Package.new
   end
   
+  
+  #POST /packages
   def create
     @package = Package.new package_params
     if @package.save
@@ -20,17 +23,18 @@ class PackagesController < ApplicationController
       #validation errors
       render :new, status: :unprocessable_entity
     end
-
   end
   
   
+  #GET /packages/:id
   def show
   end
   
+  #GET /packages/:id/edit
   def edit
   end
   
-  
+  #PATCH/PUT /packages/:id
   def update
     if @package.update package_params 
       redirect_to @package, notice: "Package was updated"
@@ -40,6 +44,7 @@ class PackagesController < ApplicationController
   end
   
   
+  #DELETE /packages/:id
   def destroy
     @package.destroy
     redirect_to packages_path, alert: "Package was deleted"
