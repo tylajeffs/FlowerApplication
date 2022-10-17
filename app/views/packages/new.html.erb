@@ -3,6 +3,7 @@
 <h1>create package</h1> 
 
 <%= bootstrap_form_with(model: @package) do |f| %>
+    <%= f.alert_message "Please fix the errors below", error_summary: false %>
     <%= f.text_field :name %>
     <%= f.text_field :description %>
     <%= f.number_field :price %>

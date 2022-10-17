@@ -15,9 +15,24 @@ class PackagesController < ApplicationController
       redirect_to packages_path, notice: "package created"
     else
       #validation errors
+      render :new, status: :unprocessable_entity
     end
 
   end
+  
+  
+  def show
+    @package = Package.find params[:id]
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   private
   
