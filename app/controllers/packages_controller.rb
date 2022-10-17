@@ -1,4 +1,7 @@
 class PackagesController < ApplicationController
+  
+  before_action :load_package, except: [:new, :index, :create] 
+  
   def index
     
     @packages = Package.all
@@ -22,7 +25,11 @@ class PackagesController < ApplicationController
   
   
   def show
-    @package = Package.find params[:id]
+    
+  end
+  
+  def edit
+    
   end
   
   
@@ -32,9 +39,11 @@ class PackagesController < ApplicationController
   
   
   
-  
-  
   private
+  
+  def load_package
+    @package = Package.find params[:id]
+  end
   
   def package_params
     params.require(:package).permit(:name,:description,:price)
