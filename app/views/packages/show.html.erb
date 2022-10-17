@@ -6,3 +6,5 @@
 
 <%= link_to "All Packages", packages_path %> |
 <%= link_to "Edit Package", edit_package_path(@package) %>
+
+<%= button_to 'Delete Package', @package, method: :delete , class: 'btn btn_primary' %>
