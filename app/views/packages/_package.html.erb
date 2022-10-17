@@ -1,5 +1,5 @@
 <div id=" <%= dom_id(package) %> " class="package" >
-    <p> <strong>Name:</strong> <%= link_to package.name, package %></p>
+    <p> <strong>Name:</strong> <%= link_to_unless_current package.name, package %></p>
     <p> <strong>Description:</strong> <%= package.description %></p>
     <p> <strong>Price:</strong> <%= package.price %></p>
 </div>
