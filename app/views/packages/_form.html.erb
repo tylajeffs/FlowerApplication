@@ -3,6 +3,6 @@
     <%= f.text_field :name %>
     <%= f.text_field :description %>
     <%= f.number_field :price %>
-    <%= f.primary 'Create Package' %>
+    <%= f.primary @package.persisted? ? 'Update Package' : 'Create Package' %>
     
 <% end %>
