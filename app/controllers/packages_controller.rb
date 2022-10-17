@@ -25,14 +25,19 @@ class PackagesController < ApplicationController
   
   
   def show
-    
   end
   
   def edit
-    
   end
   
   
+  def update
+    if @package.update package_params 
+      redirect_to @package, notice: "Package was updated"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
   
   
   
