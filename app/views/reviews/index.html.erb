@@ -1,14 +1,5 @@
 <% title "Reviews for " +@package.name %>
 
-
-<% @package.reviews.each do |review| %>
-    <div id=" <% dom_id(review) %>" class="review">
-        <h3><%= review.title %></h3>
-        <h2><%= review.stars %></h2>
-        <p><%= review.body %></p>
-        
-    </div>
-<% end %>
-
+<%= render @package.reviews %>
 
 <%= link_to "Leave a Review", new_package_review_path(@package), class: "btn btn_primary" %>
