@@ -1,3 +1,5 @@
 <%= title "Reviews for " +@package.name %>
 
 <%= render @review %>
+
+<%= link_to "All Reviews", package_reviews_path(@package) %>

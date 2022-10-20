@@ -3,3 +3,7 @@
 <%= render @package.reviews %>
 
 <%= link_to "Leave a Review", new_package_review_path(@package), class: "btn btn_primary" %>
+
+<br>
+
+<%= link_to "Back to package", package_path(@package) %>
