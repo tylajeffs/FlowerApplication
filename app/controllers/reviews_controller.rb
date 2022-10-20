@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
   
   
   def load_review
-    @review = Review.find params[:id]
+    @review = @package.reviews.find params[:id]
   end
   
   
