@@ -2,5 +2,9 @@
 
 <%= render @review %>
 
-<%= link_to "Edit Review", edit_package_review_path(@package,@note) %> | 
+<%= link_to "Edit Review", edit_package_review_path(@package,@review) %> | 
 <%= link_to "All Reviews", package_reviews_path(@package) %>
+
+<br>
+
+<%= button_to 'Delete Review', [@package,@review], method: :delete, class: 'btn btn_primary', form: { data: { turbo_confirm: "Are you sure?" } } %>
