@@ -23,7 +23,26 @@ class ReviewsController < ApplicationController
   def show
   end
   
+  def edit 
+  end
   
+  def update 
+    
+    if @review.update review_params
+      redirect_to package_review_path(@package,@review), notice: "Review updated"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+    
+  end
+  
+  
+  def destroy
+    
+    @review.destroy
+    redirect_to package_reviews_path(@package), alert: "Review Deleted"
+    
+  end
   
   
   
