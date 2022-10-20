@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlowerAppAuth</title>
+    <title>FlowerAppAuth <%= " | "+yield(:title) unless yield(:title).blank?  %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -37,9 +37,32 @@
     </nav>
     
     <!-- end nav bar -->
+  
+    
+     <!-- start title code -->
+     
+    <br><br><br>
+    <div class="row">
+      
+      <% if @show_title %>
+        <div id="title" class="row">
+          <div class="col">
+            <h1> <%= yield(:title)  %> </h1>
+            
+          </div>
+          
+        </div>
+      <% end %>
+      
+      
+    </div>
     
     
-     <!-- start flash messages code -->
+    
+    
+    
+    
+    
     
     <%= yield %>
     
