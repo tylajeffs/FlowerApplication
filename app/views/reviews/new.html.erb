@@ -1,0 +1,10 @@
+<% title "New Review" %>
+
+<%= bootstrap_form_with(model: [@package,@review]) do |f| %>
+    <%= f.alert_message "Please fix the errors below", error_summary: false %>
+    <%= f.text_field :title %>
+    <%= f.number_field :stars %>
+    <%= f.text_area :body %>
+    <%= f.primary "Submit" %>
+<% end %>
+    
