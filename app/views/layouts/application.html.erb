@@ -28,10 +28,14 @@
             <%= nav_link 'Packages', packages_path %>
             
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          <ul class="navbar-nav mb-2 mb-mb-0">
+            <% if session[:user_id] %>
+              <%= nav_link 'Log Out', '#' %>
+            <% else %>
+              <%= nav_link 'Login', login_path %>
+              <%= nav_link 'Sign Up', signup_path %>
+            <% end %>
+          </ul>
         </div>
       </div>
     </nav>
