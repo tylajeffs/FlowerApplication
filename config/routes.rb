@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   
+  get "logout" => "sessions#destroy"
   get "signup" => "users#new"
   get "login" => "sessions#new"
   resources :users, except: [:new,:index]
-  resources :sessions, except: [:index,:edit,:update,:show,:new]
+  resources :sessions, except: [:index,:edit,:update,:show,:new,:destroy]
   
   #put the reviews under the packages
   resources :packages do
