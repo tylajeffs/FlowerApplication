@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "signup" => "users#new"
+  resources :users, except: [:new]
   
   #put the reviews under the packages
   resources :packages do
