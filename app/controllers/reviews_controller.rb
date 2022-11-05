@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   
   def create
     @review = Review.new review_params
+    @review.user_id = current_user.id
     if @package.reviews << @review
       redirect_to package_review_path(@package,@review), notice: "Review Created"
     else
