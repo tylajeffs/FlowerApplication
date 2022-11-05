@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      login(@user)
       redirect_to root_path, notice: "You've successfully signed up!"
     else
       render :new, status: :unprocessable_entity
