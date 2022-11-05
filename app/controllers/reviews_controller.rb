@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate, except: [:index,:show]
   before_action :load_package
   before_action :load_review, except: [:index,:new,:create]
   

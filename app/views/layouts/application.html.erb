@@ -29,7 +29,8 @@
             
           </ul>
           <ul class="navbar-nav mb-2 mb-mb-0">
-            <% if session[:user_id] %>
+            <% if current_user %>
+              <%= nav_link 'My Profile', user_path(current_user) %>
               <%= nav_link 'Log Out', logout_path %>
             <% else %>
               <%= nav_link 'Login', login_path %>
