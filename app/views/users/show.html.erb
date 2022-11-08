@@ -9,3 +9,6 @@
 
 
 <%= link_to "Edit Profile", edit_user_path(@user) %>
+<br>
+
+<%= button_to 'Delete Account', @user, method: :delete, class: 'btn btn_primary', form: { data: { turbo_confirm: "Are you sure?" } } %>

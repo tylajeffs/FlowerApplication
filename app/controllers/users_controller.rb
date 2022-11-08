@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate, except: [:new, :create]
-  before_action :load_user
+  before_action :load_user, except: [:new, :create]
   
   
   
@@ -32,6 +32,16 @@ class UsersController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+  
+  
+  def destroy
+    logout
+    @user.destroy
+    redirect_to logout_path, alert: "Account Deleted"
+    
+  end
+  
+  
   
   
   private
