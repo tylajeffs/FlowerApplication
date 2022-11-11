@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   
   
   def new
-    @user = User.new
+    if session[:user_hash]
+      @user = User.new_from_hash session[:user_hash]
+      @user.valid? 
+    else 
+      @user = User.new
+    end
+    
   end
   
   def create

@@ -1,7 +1,23 @@
 class AuthenticationsController < ApplicationController
     
     def create
-        render json: user_hash
+        #render json: user_hash
+        #return
+        @user = User.where(uid: user_hash[:uid], provider: user_hash[:provider]).first
+        if @user 
+            login(@user)
+            redirect_to root_path, notice: "Logged in"
+        else 
+            @user = User.new_from_hash user_hash
+            if @user.save 
+                login(@user)
+                redirect_to root_path, notice: "Signed Up" 
+                
+            else
+                session[:user_hash] = user_hash
+                redirect_to signup_path, notice: "Please add the missing information"
+            end
+        end
     end
     
     
