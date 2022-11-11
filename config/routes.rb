@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "logout" => "sessions#destroy"
   get "signup" => "users#new"
   get "login" => "sessions#new"
+  get "/auth/:provider/callback" => "authentications#create"
   resources :users, except: [:new,:index]
   resources :sessions, except: [:index,:edit,:update,:show,:new,:destroy]
   
