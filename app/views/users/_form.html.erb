@@ -2,7 +2,9 @@
     <%= f.alert_message "Please fix the errors below", error_summary: false %>
     <%= f.text_field :name %>
     <%= f.email_field :email %>
-    <%= f.password_field :password %>
-    <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+    <% if @user.has_password? %>
+        <%= f.password_field :password %>
+        <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+    <% end %>
     <%= f.primary @user.persisted? ? 'Update Profile' : 'Sign Up' %>
 <% end %>
