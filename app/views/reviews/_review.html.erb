@@ -1,7 +1,12 @@
 <div id=" <% dom_id(review) %>" class="review">
     <h3><%= link_to_unless_current review.title, package_review_path(@package,review) %></h3>
     <h2><%= review.stars %> star rating</h2>
+    
+    
+    <p class="img-thumbnail"><%= image_tag review.image, :style => "height:200px; width:auto;"%></p>
+    
     <p><%= review.body %></p>
+    
     <p>Created by user #<%= review.user_id %></p>
     
 </div>
