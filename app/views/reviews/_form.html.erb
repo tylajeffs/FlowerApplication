@@ -3,5 +3,7 @@
     <%= f.text_field :title %>
     <%= f.number_field :stars %>
     <%= f.text_area :body %>
+    <%= f.label :image%>
+    <%= f.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
     <%= f.primary @review.persisted? ? 'Update Review' : 'Create Review' %>
 <% end %>
