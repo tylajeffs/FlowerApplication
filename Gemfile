@@ -54,6 +54,9 @@ gem 'omniauth-rails_csrf_protection'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+gem 'shrine', '~> 3.3'
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
