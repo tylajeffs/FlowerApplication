@@ -8,6 +8,8 @@ require 'minitest/spec'
 require 'capybara/rails'
 require 'mocha/minitest'
 
+Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
+
 Minitest::Reporters.use!(Minitest::Reporters::ProgressReporter.new(color: true),ENV,Minitest.backtrace_filter)
 
 
@@ -25,5 +27,8 @@ end
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
+  include AuthenticationMacros
+  
+  before(:each) { reset_login }
   
 end
