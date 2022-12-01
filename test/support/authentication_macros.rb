@@ -14,7 +14,7 @@ module AuthenticationMacros
     end
     
     def reset_login
-        visit logout_path
+        reset_session!
     end
     
 end

@@ -32,6 +32,15 @@ class SessionsTest < ActionDispatch::IntegrationTest
    end
    
    test "users can logout" do
-     assert true
+     
+     login_user name: "Bob"
+     
+     visit root_path
+     assert_text "My Profile"
+     
+     click_on "Log Out"
+     assert_text "Login"
+     refute page.has_content?("Log Out")
+     
    end
 end
