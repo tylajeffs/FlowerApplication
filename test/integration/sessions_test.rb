@@ -18,8 +18,17 @@ class SessionsTest < ActionDispatch::IntegrationTest
      refute page.has_content?("Login")
    end
    
-   test "users can't login with the wrong password" do
-     assert true
+   test "users can't login with wrong password" do
+     user = FactoryBot.create :user, email: "testlogin@test.com", password: "secret"
+     
+     visit login_path
+     
+     fill_in "Email", with: "testlogin@test.com"
+     fill_in "Password", with: "wrong"
+     click_button "Log in"
+     
+     assert_text "Login"
+     refute page.has_content?("Logout")
    end
    
    test "users can logout" do
