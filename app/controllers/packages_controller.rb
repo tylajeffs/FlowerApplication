@@ -4,7 +4,9 @@ class PackagesController < ApplicationController
   
   #GET /packages
   def index
-    @packages = Package.all
+    @q = Package.ransack(params[:q])
+    #@packages = Package.all
+    @packages = @q.result
   end
   
   

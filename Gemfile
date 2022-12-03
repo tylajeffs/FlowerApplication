@@ -90,3 +90,5 @@ group :test do
   gem "factory_bot_rails"
   gem "mocha"
 end
+
+gem "ransack", "~> 3.2"
