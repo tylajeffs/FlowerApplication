@@ -6,4 +6,11 @@ FactoryBot.define do
         f.password_confirmation { |d| d.password }
         
     end
+    
+    factory :package do |f|
+        f.sequence(:name) { |n| "peonies#{n}" }
+        f.description { "this is a flower package" }
+        f.price { 30 }
+        
+    end
 end
