@@ -1,5 +1,16 @@
 <br><br><br><h1>Packages</h1>
 
+
+<%= search_form_for @q do |f| %>
+    <%= f.label :name_cont %>
+    <%= f.search_field :name_cont %>
+<% end %>
+    
+
+
+
+
+
 <% @packages.each do |package|  %>
 
     <%= render package %>
