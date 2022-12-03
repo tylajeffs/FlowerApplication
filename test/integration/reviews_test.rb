@@ -13,4 +13,21 @@ class ReviewsTest < ActionDispatch::IntegrationTest
      assert_text "The Flower Shop"
      
    end
+   
+   
+   test "users who are logged in can create reviews" do
+     package = FactoryBot.create :package
+     login_user name: "Bob"
+     
+     visit root_path
+     
+     click_on "Packages"
+     click_on package.name
+     click_on "View Reviews"
+     click_on "Leave a Review"
+     
+     assert_text "New Review"
+     
+   end
+   
 end
